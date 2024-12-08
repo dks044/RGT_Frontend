@@ -28,7 +28,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "__tests__/**/*.ts"
+    "__tests__/**/*.ts", // __tests__ 디렉토리 포함
+    "next.config.js" // next.config.js 파일 포함
   ],
   "exclude": ["node_modules"]
 }
