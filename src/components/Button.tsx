@@ -45,7 +45,7 @@ const Button = ({
           "bg-rose-500 hover:bg-rose-600 focus-visible:outline-rose-600",
         !secondary &&
           !danger &&
-          "bg-lime-500 hover:bg-lime-600 focus-visible:outline-lime-600 "
+          "bg-blue-500 hover:bg-blue-600 focus-visible:outline-lime-600 "
       )}
     >
       {children}
