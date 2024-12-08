@@ -5,7 +5,7 @@ axios.defaults.withCredentials = true;
 
 // Axios 인스턴스=
 const axiosInstance = axios.create({
-  baseURL: "https://www.ajn-backend.kro.kr",
+  baseURL: "https://back.rgt-subject.kro.kr",
   withCredentials: true,
 });
 
