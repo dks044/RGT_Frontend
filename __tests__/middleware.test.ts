@@ -8,7 +8,7 @@ jest.mock("../src/app/lib/axios");
 describe("middleware", () => {
   const mockRequest = (url: string): NextRequest =>
     ({
-      url,
+      url: `http://localhost${url}`,
       headers: new Headers(),
       method: "GET",
     } as NextRequest);
@@ -17,13 +17,13 @@ describe("middleware", () => {
     jest.clearAllMocks();
   });
 
-  it("사용자가 인증된 경우 요청을 허용해야 함", async () => {
+  it("사용자가 인증된 경우 /books로 리디렉션되어야 함", async () => {
     (axios.get as jest.Mock).mockResolvedValue({ data: true });
 
     const req = mockRequest("/protected/some-route");
     const response = await middleware(req);
 
-    expect(response).toBe(NextResponse.next());
+    expect(response).toEqual(NextResponse.redirect(new URL("/books", req.url)));
   });
 
   it("사용자가 인증되지 않은 경우 홈으로 리디렉션되어야 함", async () => {
