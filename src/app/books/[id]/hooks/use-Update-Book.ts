@@ -33,7 +33,7 @@ const useUpdateBook = (bookId: number) => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["book", bookId] });
       toast.success("책 정보가 성공적으로 수정되었습니다!");
-      router.replace("/");
+      router.replace("/books");
     },
     onError: (error) => {
       console.error(error);

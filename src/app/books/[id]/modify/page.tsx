@@ -112,7 +112,7 @@ const BookEditPage = ({ params }: BookEditPageProps) => {
             })}
             defaultValue={
               book?.publicationDate
-                ? new Date(book.publicationDate).toLocaleDateString()
+                ? new Date(book.publicationDate).toISOString().split("T")[0]
                 : ""
             }
             className={`border rounded p-2 w-full ${
