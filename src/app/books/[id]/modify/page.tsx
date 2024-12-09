@@ -31,7 +31,10 @@ const BookEditPage = ({ params }: BookEditPageProps) => {
       setValue("description", book.description);
       setValue("price", book.price);
       setValue("amount", book.amount);
-      setValue("publicationDate", book.publicationDate);
+      // publicationDate가 존재하는 경우에만 설정
+      if (book.publicationDate) {
+        setValue("publicationDate", book.publicationDate.split("T")[0]);
+      }
     }
   }, [book, setValue]);
 
@@ -111,9 +114,7 @@ const BookEditPage = ({ params }: BookEditPageProps) => {
               required: "출판일은 필수입니다.",
             })}
             defaultValue={
-              book?.publicationDate
-                ? new Date(book.publicationDate).toISOString().split("T")[0]
-                : ""
+              book?.publicationDate ? book.publicationDate.split("T")[0] : ""
             }
             className={`border rounded p-2 w-full ${
               errors.publicationDate ? "border-red-500" : ""
