@@ -4,8 +4,10 @@ import { useBooks } from "@/hooks/useBooks";
 import { Book } from "@/schemas/book";
 import LoadingModal from "@/components/modals/LoadingModal";
 import DebouncedInput from "@/components/DebouncedInput";
+import { useRouter } from "next/navigation";
 
 const BookTable: React.FC = () => {
+  const router = useRouter();
   const {
     books,
     totalPages,
@@ -32,11 +34,11 @@ const BookTable: React.FC = () => {
         placeholder="책 검색"
       />
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border border-gray-300">
+        <table className="min-w-full bg-white border border-gray-300 transition">
           <thead>
             <tr className="bg-gray-200">
               <th className="py-2 px-4 border-b">ID</th>
-              <th className="py-2 px-4 border-b">책 이름</th>
+              <th className="py-2 px-4 border-b  ">책 이름</th>
               <th className="py-2 px-4 border-b">저자</th>
               <th className="py-2 px-4 border-b">수량</th>
               <th className="py-2 px-4 border-b">가격</th>
@@ -47,7 +49,12 @@ const BookTable: React.FC = () => {
             {books.map((book: Book) => (
               <tr key={book.id} className="hover:bg-gray-100">
                 <td className="py-2 px-4 border-b">{book.id}</td>
-                <td className="py-2 px-4 border-b">{book.bookName}</td>
+                <td
+                  onClick={() => router.push(`/books/${book.id}`)}
+                  className="py-2 px-4 border-b underline cursor-pointer text-gray-700 hover:text-gray-900 transition"
+                >
+                  {book.bookName}
+                </td>
                 <td className="py-2 px-4 border-b">{book.author}</td>
                 <td className="py-2 px-4 border-b">{book.amount}</td>
                 <td className="py-2 px-4 border-b">{book.price} 원</td>

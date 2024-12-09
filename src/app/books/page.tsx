@@ -1,7 +1,7 @@
 import React from "react";
 import BookTable from "./components/BookTable";
 
-const BookPage = () => {
+const BooksPage = () => {
   return (
     <section>
       <BookTable />
@@ -9,4 +9,4 @@ const BookPage = () => {
   );
 };
 
-export default BookPage;
+export default BooksPage;
