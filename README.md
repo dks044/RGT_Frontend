@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📦배포 주소
+[프론트 배포주소](http://rgt-subject.kro.kr/)
 
-## Getting Started
+[백엔드 API 명세서](https://back.rgt-subject.kro.kr/swagger-ui/index.html#/)
 
-First, run the development server:
+# ⚡로컬 프로젝트 실행방법 (백엔드+프론트)
 
-```bash
+## 🖼️프론트엔드
+> node js 설치상태에서 하는것을 권장해요
+```
+--리눅스
+git clone https://github.com/dks044/RGT_Frontend.git
+cd RGT_Frontend
+npm install
+touch .env
+echo "NEXT_PUBLIC_API_URL=http://localhost:8080" >> .env
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+--윈도우
+git clone https://github.com/dks044/RGT_Frontend.git
+cd RGT_Frontend
+npm install
+echo NEXT_PUBLIC_API_URL=http://localhost:8080 > .env
+npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️백엔드
+> 먼저 jdk 설치를 해주세요.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[백엔드 빌드파일 링크](https://drive.google.com/file/d/1xwvo2u31ooUo8pzxnnmF68C-6H130_5h/view?usp=sharing)
+> 해당 파일을 다운 로드 해주세요
+```
+--윈도우 리눅스 동일합니다.
+CD [백엔드 빌드파일을 다운로드 한 경로로 이동]
+java -jar RGT-0.0.1-SNAPSHOT.jar
+```
