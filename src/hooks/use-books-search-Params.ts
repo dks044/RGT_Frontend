@@ -1,30 +1,22 @@
-// hooks/useProductsSearchParams.ts
+"use client";
+import { parseAsInteger, parseAsString, useQueryState } from "nuqs";
+import { useCallback } from "react";
 
-import { parseAsInteger, parseAsString } from "some-parsing-library"; // 실제 사용 중인 파싱 라이브러리로 수정
+export const useBooksSearchParams = () => {
+  const [page, setPage] = useQueryState("page", parseAsInteger);
+  const [q, setQ] = useQueryState("q", parseAsString);
 
-export const useProductsSearchParams = () => {
-  const [page, setPage] = useQueryState(
-    "page",
-    parseAsInteger.withDefault(1).withOptions({
-      history: "push",
-    })
+  const handleTermChange = useCallback(
+    (term: string, newPage?: number) => {
+      if (q === term) return;
+      setQ(term);
+      setPage(newPage ? newPage : 1);
+    },
+    [q, setPage, setQ]
   );
-
-  const [q, setQ] = useQueryState(
-    "q",
-    parseAsString.withDefault("").withOptions({
-      history: "push",
-    })
-  );
-
-  const handleTermChange = async (term: string) => {
-    if (q === term) return;
-    await setQ(term); // 검색어 변경
-    await setPage(1); // 페이지를 1로 초기화
-  };
 
   return {
-    page,
+    page: page || 1,
     setPage,
     term: q,
     handleTermChange,

@@ -1,30 +1,33 @@
-// hooks/useBooks.ts
-import axios from "@/lib/axios"; // axios 인스턴스 경로 확인
-import { useProductsSearchParams } from "./useProductsSearchParams"; // 검색어 커스텀 훅
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { useBooksSearchParams } from "./use-books-search-Params";
+import axios from "@/lib/axios";
+import { bookSchema } from "@/schemas/book";
 
-const fetchBooks = async (searchTerm: string, page: number, size: number) => {
+const fetchBooks = async (searchTerm: string, page: number) => {
   const response = await axios.get("/api/books", {
     params: {
       searchTerm,
       page,
-      size,
     },
   });
+  console.log("API response:", response.data);
   return response.data;
 };
 
 export const useBooks = () => {
-  const { page, term, handleTermChange } = useProductsSearchParams();
+  const { page, term, handleTermChange } = useBooksSearchParams();
 
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["books", term, page], // 쿼리 키
-    queryFn: () => fetchBooks(term, page - 1, 10),
+    queryKey: ["books", { page, term }],
+    queryFn: async () => await fetchBooks(term || "", page - 1),
+    staleTime: 1000 * 60 * 5,
     placeholderData: keepPreviousData,
   });
 
   return {
-    books: data?.content || [],
+    books: data?.content
+      ? data.content.map((book: any) => bookSchema.parse(book))
+      : [],
     totalPages: data?.totalPages || 0,
     isLoading,
     isError,
