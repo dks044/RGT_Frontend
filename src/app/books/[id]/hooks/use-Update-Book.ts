@@ -4,8 +4,10 @@ import axios from "@/lib/axios";
 
 import toast from "react-hot-toast";
 import { updateBookSchema } from "@/schemas/book";
+import { useRouter } from "next/navigation";
 
 const useUpdateBook = (bookId: number) => {
+  const router = useRouter();
   const queryClient = useQueryClient();
   const {
     register,
@@ -31,6 +33,7 @@ const useUpdateBook = (bookId: number) => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["book", bookId] });
       toast.success("책 정보가 성공적으로 수정되었습니다!");
+      router.replace("/");
     },
     onError: (error) => {
       console.error(error);

@@ -110,6 +110,11 @@ const BookEditPage = ({ params }: BookEditPageProps) => {
             {...register("publicationDate", {
               required: "출판일은 필수입니다.",
             })}
+            defaultValue={
+              book?.publicationDate
+                ? new Date(book.publicationDate).toLocaleDateString()
+                : ""
+            }
             className={`border rounded p-2 w-full ${
               errors.publicationDate ? "border-red-500" : ""
             }`}

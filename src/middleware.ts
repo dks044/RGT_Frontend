@@ -16,7 +16,6 @@ export async function middleware(req: NextRequest) {
   }
 
   try {
-    // Axios 요청
     const response = await axios.get("/api/auth/authentication", {
       headers: {
         Cookie: cookieHeader,
