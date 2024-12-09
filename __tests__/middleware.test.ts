@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { middleware } from "../src/app/middleware";
-import axios from "../src/app/lib/axios";
+import axios from "../src/lib/axios";
 import type { NextRequest } from "next/server";
 
 jest.mock("../src/app/lib/axios");

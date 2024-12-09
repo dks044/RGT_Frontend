@@ -1,5 +1,5 @@
 "use client";
-import axiosInstance from "@/app/lib/axios";
+import axiosInstance from "@/lib/axios";
 import { AxiosError } from "axios";
 import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
