@@ -1,7 +1,12 @@
 import React from "react";
+import BookTable from "./components/BookTable";
 
-const BookPage = () => {
-  return <div>BookPage</div>;
+const BooksPage = () => {
+  return (
+    <section>
+      <BookTable />
+    </section>
+  );
 };
 
-export default BookPage;
+export default BooksPage;
