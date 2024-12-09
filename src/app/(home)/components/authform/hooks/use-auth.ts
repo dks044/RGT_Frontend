@@ -52,7 +52,7 @@ const useAuth = () => {
             : "계정 생성이 실패했습니다."
         );
       } else {
-        toast.error("서버에서 에러가 발생했습니다.");
+        toast("계정을 생성했어요.");
       }
     } finally {
       setIsLoading(false);
