@@ -33,6 +33,7 @@ const BookDetailPage = ({ params }: BookDetailPageProps) => {
       <div className="bg-white shadow-md rounded-lg p-6">
         <h1 className="text-2xl font-bold mb-2">{book?.bookName}</h1>
         <p className="text-gray-700 mb-4">저자: {book?.author}</p>
+        <p className="text-gray-700 mb-4">설명: {book?.description}</p>
         <p className="text-gray-700 mb-4">가격: {book?.price} 원</p>
         <p className="text-gray-700 mb-4">
           출판일:{" "}
