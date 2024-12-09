@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
-import { useBooks } from "@/hooks/useBooks";
 import { Book } from "@/schemas/book";
 import LoadingModal from "@/components/modals/LoadingModal";
 import DebouncedInput from "@/components/DebouncedInput";
 import { useRouter } from "next/navigation";
+import { useBooks } from "@/hooks/use-Books";
 
 const BookTable: React.FC = () => {
   const router = useRouter();
@@ -48,18 +48,20 @@ const BookTable: React.FC = () => {
           <tbody>
             {books.map((book: Book) => (
               <tr key={book.id} className="hover:bg-gray-100">
-                <td className="py-2 px-4 border-b">{book.id}</td>
+                <td className="py-2 px-4 border-b">{book?.id}</td>
                 <td
-                  onClick={() => router.push(`/books/${book.id}`)}
+                  onClick={() => router.push(`/books/${book?.id}`)}
                   className="py-2 px-4 border-b underline cursor-pointer text-gray-700 hover:text-gray-900 transition"
                 >
                   {book.bookName}
                 </td>
-                <td className="py-2 px-4 border-b">{book.author}</td>
-                <td className="py-2 px-4 border-b">{book.amount}</td>
-                <td className="py-2 px-4 border-b">{book.price} 원</td>
+                <td className="py-2 px-4 border-b">{book?.author}</td>
+                <td className="py-2 px-4 border-b">{book?.amount}</td>
+                <td className="py-2 px-4 border-b">{book?.price} 원</td>
                 <td className="py-2 px-4 border-b">
-                  {new Date(book.publicationDate).toLocaleDateString()}
+                  {book?.publicationDate
+                    ? new Date(book.publicationDate).toLocaleDateString()
+                    : "정보 없음"}
                 </td>
               </tr>
             ))}

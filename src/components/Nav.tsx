@@ -1,10 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import useUserStore from "@/store/useUserStore";
-import useLogout from "@/hooks/useLogout";
+import useLogout from "@/hooks/use-Logout";
 import AddBookModal from "./modals/AddBookModal";
+import { useRouter } from "next/navigation";
 
 const Nav = () => {
+  const router = useRouter();
   const [isAddBookModalShow, setIsAddBookModalShow] = useState(false);
   const { user } = useUserStore();
   const { logout } = useLogout();
@@ -17,7 +19,12 @@ const Nav = () => {
       />
       <nav className="bg-gray-800 text-white p-4 flex justify-between items-center">
         <div className="flex gap-4 items-center justify-center">
-          <div className="text-lg font-bold">RGT Book Store 관리자 모드</div>
+          <div
+            className="text-lg font-bold cursor-pointer"
+            onClick={() => router.push("/")}
+          >
+            RGT Book Store 관리자 모드
+          </div>
           <button
             onClick={() => setIsAddBookModalShow(true)}
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition"

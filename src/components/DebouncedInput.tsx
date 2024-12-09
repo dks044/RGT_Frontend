@@ -1,30 +1,13 @@
 "use client";
+import { useDebounce } from "@/hooks/use-Debounce";
 import React, { useEffect, useState } from "react";
 
-// 디바운스 훅
-const useDebounce = (value: string, delay: number) => {
-  const [debouncedValue, setDebouncedValue] = useState(value);
-
-  useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebouncedValue(value);
-    }, delay);
-
-    return () => {
-      clearTimeout(handler);
-    };
-  }, [value, delay]);
-
-  return debouncedValue;
-};
-
-// DebouncedInput 컴포넌트
 interface DebouncedInputProps {
   value: string;
   onChange: (value: string) => void;
-  delay?: number; // 디바운스 시간, 기본값은 300ms
+  delay?: number;
   placeholder?: string;
-  className?: string; // 추가적인 클래스 이름
+  className?: string;
 }
 
 const DebouncedInput: React.FC<DebouncedInputProps> = ({

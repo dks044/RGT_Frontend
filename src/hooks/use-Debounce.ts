@@ -3,10 +3,6 @@ import { useEffect, useState } from "react";
 export const useDebounce = (value: string, delay: number) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setDebouncedValue(event.target.value);
-  };
-
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedValue(value);
@@ -17,5 +13,5 @@ export const useDebounce = (value: string, delay: number) => {
     };
   }, [value, delay]);
 
-  return { debouncedValue, handleChange };
+  return debouncedValue;
 };
