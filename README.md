@@ -1,3 +1,8 @@
+# 📋 문서
+>Git Issue & PR 문서들이 정리돼 있어요.
+
+[과제 노션 문서](https://ahnjonyun.notion.site/RGT_-_-1571eacaea388016987efaea6ce7dc05?pvs=74)
+
 # 📦배포 주소
 [프론트 배포주소](http://rgt-subject.kro.kr/)
 
