@@ -3,9 +3,11 @@ import AuthForm from "./components/authform";
 
 const LoginPage = () => {
   return (
-    <section>
-      <AuthForm />
-    </section>
+    <main className="w-full h-screen flex justify-center items-center flex-1">
+      <section>
+        <AuthForm />
+      </section>
+    </main>
   );
 };
 
