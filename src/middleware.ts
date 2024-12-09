@@ -6,7 +6,9 @@ export async function middleware(req: NextRequest) {
   const isHomePath = req.nextUrl.pathname === "/";
 
   // 요청 헤더에서 쿠키 가져오기
-  const cookieHeader = req.headers.get("cookie");
+  const cookieHeader = req.headers.get("cookie")
+    ? req.headers.get("cookie")
+    : req.headers.get("vercel-feature-flags");
 
   try {
     // Axios 요청
