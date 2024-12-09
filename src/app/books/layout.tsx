@@ -1,12 +1,14 @@
 import Nav from "@/components/Nav";
-import React, { ReactNode } from "react";
+import React, { ReactNode, Suspense } from "react";
 
 const layout = ({ children }: { children: ReactNode }) => {
   return (
-    <main>
-      <Nav />
-      <div>{children}</div>
-    </main>
+    <Suspense>
+      <main>
+        <Nav />
+        <div>{children}</div>
+      </main>
+    </Suspense>
   );
 };
 
