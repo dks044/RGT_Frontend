@@ -29,18 +29,18 @@ const BookTable: React.FC = () => {
       <DebouncedInput
         value={term ? term : ""}
         onChange={(newTerm) => handleTermChange(newTerm)}
-        placeholder="Search books..."
+        placeholder="책 검색"
       />
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white border border-gray-300">
           <thead>
             <tr className="bg-gray-200">
               <th className="py-2 px-4 border-b">ID</th>
-              <th className="py-2 px-4 border-b">Book Name</th>
-              <th className="py-2 px-4 border-b">Author</th>
-              <th className="py-2 px-4 border-b">Amount</th>
-              <th className="py-2 px-4 border-b">Price</th>
-              <th className="py-2 px-4 border-b">Publication Date</th>
+              <th className="py-2 px-4 border-b">책 이름</th>
+              <th className="py-2 px-4 border-b">저자</th>
+              <th className="py-2 px-4 border-b">수량</th>
+              <th className="py-2 px-4 border-b">가격</th>
+              <th className="py-2 px-4 border-b">출판일</th>
             </tr>
           </thead>
           <tbody>
@@ -65,17 +65,17 @@ const BookTable: React.FC = () => {
           onClick={() => handleTermChange(term ? term : "", page - 1)}
           className="bg-blue-500 text-white rounded px-4 py-2 disabled:opacity-50"
         >
-          Previous
+          이전
         </button>
         <span>
-          Page {page} of {totalPages}
+          페이지 {page} / {totalPages}
         </span>
         <button
           disabled={page === totalPages}
           onClick={() => handleTermChange(term ? term : "", page + 1)}
           className="bg-blue-500 text-white rounded px-4 py-2 disabled:opacity-50"
         >
-          Next
+          다음
         </button>
       </div>
     </div>

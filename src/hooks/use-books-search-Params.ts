@@ -8,7 +8,7 @@ export const useBooksSearchParams = () => {
 
   const handleTermChange = useCallback(
     (term: string, newPage?: number) => {
-      if (q === term) return;
+      if (q === term && newPage === undefined) return;
       setQ(term);
       setPage(newPage ? newPage : 1);
     },
