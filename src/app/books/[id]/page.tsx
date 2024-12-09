@@ -1,16 +1,16 @@
 "use client";
 import { useBook } from "@/hooks/use-Book";
 import { useRouter } from "next/navigation";
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import DeleteModal from "./components/DeleteModal";
 
 export interface BookDetailPageProps {
-  params: Promise<{ id: string }>;
+  params: { id: string };
 }
 
 const BookDetailPage = ({ params }: BookDetailPageProps) => {
   const router = useRouter();
-  const { id } = use(params);
+  const id = params.id;
   const { book, isLoading, isError } = useBook(Number(id));
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   if (isLoading) {
