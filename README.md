@@ -4,7 +4,7 @@
 [과제 노션 문서](https://ahnjonyun.notion.site/RGT_-_-1571eacaea388016987efaea6ce7dc05?pvs=74)
 
 # 📦배포 주소
-[프론트 배포주소](http://rgt-subject.kro.kr/)
+[프론트 배포주소](http://www.rgt-subject.kro.kr/)
 
 [백엔드 API 명세서](https://back.rgt-subject.kro.kr/swagger-ui/index.html#/)
 
