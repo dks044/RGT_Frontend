@@ -12,6 +12,7 @@ export const useBook = (id: number) => {
     queryKey: ["book", id],
     queryFn: () => fetchBookById(id),
     enabled: !!id,
+    staleTime: 1000 * 60 * 5,
   });
 
   return {
