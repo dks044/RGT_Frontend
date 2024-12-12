@@ -48,17 +48,17 @@ const BookTable: React.FC = () => {
           <tbody>
             {books.map((book: Book) => (
               <tr key={book.id} className="hover:bg-gray-100">
-                <td className="py-2 px-4 border-b">{book?.id}</td>
+                <td className="py-2 px-4 border-b text-center">{book?.id}</td>
                 <td
                   onClick={() => router.push(`/books/${book?.id}`)}
-                  className="py-2 px-4 border-b underline cursor-pointer text-gray-700 hover:text-gray-900 transition"
+                  className="py-2 px-4 border-b underline cursor-pointer text-gray-700 hover:text-gray-900 transition text-center"
                 >
                   {book.bookName}
                 </td>
-                <td className="py-2 px-4 border-b">{book?.author}</td>
-                <td className="py-2 px-4 border-b">{book?.amount}</td>
-                <td className="py-2 px-4 border-b">{book?.price} 원</td>
-                <td className="py-2 px-4 border-b">
+                <td className="py-2 px-4 border-b text-center">{book?.author}</td>
+                <td className="py-2 px-4 border-b text-center">{book?.amount}</td>
+                <td className="py-2 px-4 border-b text-center">{book?.price} 원</td>
+                <td className="py-2 px-4 border-b text-center">
                   {book?.publicationDate
                     ? new Date(book.publicationDate).toLocaleDateString()
                     : "정보 없음"}

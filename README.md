@@ -4,7 +4,7 @@
 [과제 노션 문서](https://ahnjonyun.notion.site/RGT_-_-1571eacaea388016987efaea6ce7dc05?pvs=74)
 
 # 📦배포 주소
-[프론트 배포주소](http://rgt-subject.kro.kr/)
+[프론트 배포주소](http://www.rgt-subject.kro.kr/)
 
 [백엔드 API 명세서](https://back.rgt-subject.kro.kr/swagger-ui/index.html#/)
 
@@ -30,6 +30,8 @@ npm run dev
 ```
 
 ## 🛠️백엔드
+❗ 로컬 데이터베이스 호환 문제로 로컬 실행보단 배포된 주소에서 테스트 하는것을 권장합니다.
+
 > 먼저 jdk 설치를 해주세요.
 
 [백엔드 빌드파일 링크](https://drive.google.com/file/d/1xwvo2u31ooUo8pzxnnmF68C-6H130_5h/view?usp=sharing)
